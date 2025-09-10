@@ -1,13 +1,31 @@
 <html>
     <body>
         <div class="window" id="js-window">
-            <div class="header browser" id="js-header">Run JS</div>
+            <div class="header browser" id="js-header">JS Console</div>
             <div class="content browser" id="js-content">
-                <textarea id="js-textarea" placeholder="Type JS here"></textarea>
-                <button onclick="RunJS()">Run JS</button>
-                <button onclick="ClearJS()">Clear</button>
+                <textarea id="js-input" placeholder="Type JavaScript code here"></textarea>
+                <button onclick="runJS()">Run</button>
+                <button onclick="clearJS()">Clear</button>
+                <pre id="js-output" class="output"></pre>
             </div>
         </div>
+        <script>
+        function runJS() {
+            const input = document.getElementById('js-input').value;
+            const output = document.getElementById('js-output');
+            try {
+                // Use Function constructor for better scope isolation
+                const result = Function('"use strict";return (' + input + ')')();
+                output.textContent = String(result);
+            } catch (e) {
+                output.textContent = 'Error: ' + e.message;
+            }
+        }
+        function clearJS() {
+            document.getElementById('js-input').value = '';
+            document.getElementById('js-output').textContent = '';
+        }
+        </script>
         <div class="window" id="file-window">
             <div class="header file" id="file-header">Draggable</div>
             <div class="content file" id="file-content">Content</div>
