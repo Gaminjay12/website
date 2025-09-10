@@ -1,15 +1,20 @@
 <html>
     <body>
-        <div class="window" id="browser-window">
-            <div class="header browser" id="browser-header">Draggable</div>
-            <div class="content browser" id="browser-content">Content</div>
+        <div class="window" id="js-window">
+            <div class="header browser" id="js-header">Run JS</div>
+            <div class="content browser" id="js-content">
+                <textarea id="js-textarea" placeholder="Type JS here"></textarea>
+                <button onclick="RunJS()">Run JS</button>
+                <button onclick="ClearJS()">Clear</button>
+            </div>
         </div>
         <div class="window" id="file-window">
             <div class="header file" id="file-header">Draggable</div>
             <div class="content file" id="file-content">Content</div>
         </div>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/css/windows.css">
         <script src="script.js"></script>
+        <script src="assets/js/interpreter.js"></script>
         <h3 onclick="File()">File Toggle</h3>
     </body>
 </html>
