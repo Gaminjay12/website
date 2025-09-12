@@ -1,37 +1,23 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href="assets/css/windows.css" rel="stylesheet">
+    </head>
     <body>
         <div class="window" id="js-window">
-            <div class="header browser" id="js-header">JS Console</div>
-            <div class="content browser" id="js-content">
+            <div class="header" id="js-header">JS Console</div>
+            <div class="content" id="js-content">
                 <textarea id="js-input" placeholder="Type JavaScript code here"></textarea>
                 <button onclick="runJS()">Run</button>
                 <button onclick="clearJS()">Clear</button>
                 <pre id="js-output" class="output"></pre>
             </div>
         </div>
-        <script>
-        function runJS() {
-            const input = document.getElementById('js-input').value;
-            const output = document.getElementById('js-output');
-            try {
-                // Use Function constructor for better scope isolation
-                const result = Function('"use strict";return (' + input + ')')();
-                output.textContent = String(result);
-            } catch (e) {
-                output.textContent = 'Error: ' + e.message;
-            }
-        }
-        function clearJS() {
-            document.getElementById('js-input').value = '';
-            document.getElementById('js-output').textContent = '';
-        }
-        </script>
         <div class="window" id="file-window">
-            <div class="header file" id="file-header">Draggable</div>
-            <div class="content file" id="file-content">Content</div>
+            <div class="header" id="file-header">Draggable</div>
+            <div class="content " id="file-content">Content</div>
         </div>
-        <link rel="stylesheet" href="assets/css/windows.css">
-        <script src="script.js"></script>
+        
         <script src="assets/js/interpreter.js"></script>
         <h3 onclick="File()">File Toggle</h3>
     </body>
